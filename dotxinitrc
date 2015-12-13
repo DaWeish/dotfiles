@@ -35,6 +35,9 @@ fi
 # Set the desktop Background
 hsetroot -fill ~/Pictures/DesktopBackgrounds/WinterTree.jpg &
 
+# Start Redshift to help with eye strain
+redshift &
+
 compton --config ~/.config/compton.conf &
 sxhkd &
 

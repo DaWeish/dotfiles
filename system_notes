@@ -37,4 +37,5 @@ Edited colors in Xresources to new color scheme and removed colors for urxvt
 Installed xscreensaver 
 Installed pulseauidio and ponymix
 Installed light-git and set shortcuts for controlling screen brightness in sxhkdrc
-
+Installed udisks2, dosfstools, and ntfs-3g, udevil
+Created udisks2 udev file can remove hidden devices later
