@@ -39,3 +39,5 @@ Installed pulseauidio and ponymix
 Installed light-git and set shortcuts for controlling screen brightness in sxhkdrc
 Installed udisks2, dosfstools, and ntfs-3g, udevil
 Created udisks2 udev file can remove hidden devices later
+Left the SUID bit in udevil and enabled the devmon@connor.service
+Installed arudino from AUR
