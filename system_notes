@@ -7,10 +7,10 @@ Sorted top ten pacman mirrors and replaced mirrorlist
 Installed xdg-user-dirs and ran xdg-user-dirs-update
 Installed vim
 Uncommented the color line in /etc/pacman.conf to give color output
-**Installed xorg-server xorg-server-utils
+Installed xorg-server xorg-server-utils
 **Installed bspwm sxhkd
 Installed alsa-utils
-**Exported ALSA_CARD=PCM to get speakers working, need to make permanent
+Exported ALSA_CARD=PCM to get speakers working, need to make permanent
 Installed xorg-xinit
 Copied default xinitrc and removed twm and xterm options
 Added XDG_CONFIG_HOME=$HOME/.config to .bash_profile
@@ -23,14 +23,18 @@ Installed git
 Installed lemon_bar and edited xinitrc to be like brhodes
 Edited bspwmrc and panel to get started
 Got example panel working
-**Need to move builds folder to ~/.builds
+Need to move builds folder to ~/.builds
 Stole billy's desktop background switcher script couldnt get working, need pythong module for daemon
 Installed openvpn and copied files from pia into /etc/openvpn
 start with systemctl start openvpn@client.service
 Installed transmission
+Copied default config for Synaptics and changed scrolldelta to negative for natural scrolling
 Also need to start when using that to torrent and can view the web version
 Added some aliases to .bashrc and sourced the git prompt.sh for added git niceness
 Edited Xresources to change some colors and functions for urxvt
 Installed hsetroot to set the bg and added line to xinitrc
 Edited colors in Xresources to new color scheme and removed colors for urxvt 
 Installed xscreensaver 
+Installed pulseauidio and ponymix
+Installed light-git and set shortcuts for controlling screen brightness in sxhkdrc
+

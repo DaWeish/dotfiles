@@ -89,3 +89,20 @@ super + space
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
+
+# ------- Volume control Shortcuts ---------------
+XF86AudioRaiseVolume
+	ponymix increase 5
+
+XF86AudioLowerVolume
+	ponymix decrease 5
+
+XF86AudioMute
+	ponymix toggle
+
+# ------- Brightness Control Shortcuts ----------
+XF86MonBrightnessUp
+	light -A 10
+
+XF86MonBrightnessDown
+	light -U 10
