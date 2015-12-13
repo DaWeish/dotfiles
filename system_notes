@@ -41,3 +41,5 @@ Installed udisks2, dosfstools, and ntfs-3g, udevil
 Created udisks2 udev file can remove hidden devices later
 Left the SUID bit in udevil and enabled the devmon@connor.service
 Installed arudino from AUR
+Installed lemonbar-xft-git and replaced lemonbar-git
+Downloaded chriskempson/base16-xresources to .config folder
