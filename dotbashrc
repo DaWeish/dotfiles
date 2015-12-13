@@ -1,0 +1,16 @@
+#
+# ~/.bashrc
+#
+
+# Commented out to run this for login shells since it is sourced in bash_login
+# If not running interactively, don't do anything
+#[[ $- != *i* ]] && return
+
+# Souce the git-prompt.sh for added git support
+. /usr/share/git/completion/git-prompt.sh
+
+alias ls='ls --color=auto'
+alias cls='clear'
+alias ..='cd ..'
+
+PS1='\u@\h \W$(__git_ps1)\$ '
