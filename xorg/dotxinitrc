@@ -32,13 +32,4 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-# Set the desktop Background
-hsetroot -fill ~/Pictures/DesktopBackgrounds/WinterTree.jpg &
-
-# Start Redshift to help with eye strain
-redshift &
-
-compton --config ~/.config/compton.conf &
-sxhkd &
-
 exec bspwm ~/.config/bspwm/bspwmrc

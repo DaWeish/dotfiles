@@ -16,4 +16,17 @@ bspc rule -a Chromium desktop=^2
 #bspc rule -a Kupfer.py focus=on
 #bspc rule -a Screenkey manage=off
 
+# Begin sxhkd to detect keystrokes and mouse input
+sxhkd &
+
+# Load up the background image
+hsetroot -fill ~/Pictures/DesktopBackgrounds/WinterTree.jpg &
+
+# Start lemonbar-xft
 ~/.config/bspwm/panel/panel &
+
+# Begin redshift
+redshift &
+
+# Begin compton for compositing and specify background and config
+compton -b --config ~/.config/compton/compton.conf
