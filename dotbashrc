@@ -2,9 +2,8 @@
 # ~/.bashrc
 #
 
-# Commented out to run this for login shells since it is sourced in bash_login
 # If not running interactively, don't do anything
-#[[ $- != *i* ]] && return
+[[ $- != *i* ]] && return
 
 source /usr/share/git/completion/git-prompt.sh
 
@@ -25,6 +24,8 @@ alias pager="$PAGER"
 alias q='exit'
 
 alias irc="$IRC_CLIENT"
+
+alias vi="vim"
 
 # Language aliases
 alias rb='ruby'
