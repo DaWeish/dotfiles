@@ -1,5 +1,5 @@
 !------------------- Colors for Xorg -----------------------------
-*background:	#222222
+*background:	#202020
 *foreground:	#e8e9ca
 
 *color0:	#222222
@@ -25,7 +25,7 @@
 
 ! Color depth options and set background color
 URxvt.depth:	32
-URxvt.background:	[95]#222222
+URxvt.background:	[88]#202020
 
 
 ! Scrollbar options, set to true to turn on

@@ -33,3 +33,4 @@ Added some aliases to .bashrc and sourced the git prompt.sh for added git nicene
 Edited Xresources to change some colors and functions for urxvt
 Installed hsetroot to set the bg and added line to xinitrc
 Edited colors in Xresources to new color scheme and removed colors for urxvt 
+Installed xscreensaver 
