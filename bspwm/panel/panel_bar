@@ -3,32 +3,63 @@
 # Example panel for LemonBoy's bar
 
 . ~/.config/bspwm/panel/panel_colors
-. ~/.config/bspwm/panel/panel_config
+#. ~/.config/bspwm/panel/panel_config
 
 num_mon=$(bspc query -M | wc -l)
+PADDING="  "
 
 while read -r line ; do
   case $line in
-#    C*)
-      #     # conky output 
-      #      conky="%{F$COLOR_CONCKY_FG}%{B$COLOR_CONKY_BG} ${line#?} %{B-}%{F-}"
-      #     ;;
-    S*)
-      # clock output
-      sys_infos="%{F$COLOR_STATUS_FG}%{B$COLOR_STATUS_BG} ${line#?} %{B-}%{F-}"
+    DAY*)
+      # date output
+      date="  %{B$COLOR_DTG_BG}%{F$COLOR_DTG_FG}  ${line#???}$PADDING%{F-}%{B-}"
       ;;
+
+    EMAIL*)
+      # email alerts
+      email="$PADDING${line#?????}$PADDING"
+      ;;
+
+    MESSAGE*)
+      # Weechat messages
+      messages="$PADDING${line#???????}$PADDING"
+      ;;
+
+    NEWS*)
+      # Newsbeuter articles
+      news="$PADDING${line#????}$PADDING"
+      ;;
+
     MUSIC*)
-      # mpd output 
-      music="%{F$COLOR_STATUS_FG}%{B$COLOR_STATUS_BG} ${line#?????} %{B-}%{F-}"
+      # music info
+      music="$PADDING${line#?????}$PADDING"
       ;;
+    TIME*)
+      # clock output
+      clock="%{B$COLOR_DTG_BG}%{F$COLOR_DTG_FG}${line#????}$PADDING%{F-}%{B-}"
+      ;;
+
+    BAT*)
+      # battery percent output
+      battery="$PADDING${line#???}$PADDING"
+      ;;
+
+      # uncomment for window title support
+      #   TITLE*)
+      #     # xtitle output
+      #     title="${line#?????}$PADDING$PADDING"
+      #     ;;
+
     VOL*)
-      # ponymix output
-      volume="%{F$COLOR_STATUS_FG}%{B$COLOR_STATUS_BG} ${line#???} %{B-}%{F-}"
+      # alsa volume
+      volume="$PADDING${line#???}$PADDING"
       ;;
-    WIFI*)
-      # iw wlp2s0 output
-      wifi="%{F$COLOR_STATUS_FG}%{B$COLOR_STATUS_BG} ${line#????} %{B-}%{F-}"
+
+    LINK*)
+      # wifi link
+      wifi="$PADDING${line#????}$PADDING"
       ;;
+
     W*)
       # bspwm internal state
       wm_infos=""
@@ -41,52 +72,43 @@ while read -r line ; do
           M*)
             # active monitor
             if [ $num_mon -gt 1 ] ; then
-              wm_infos="$wm_infos %{F$COLOR_ACTIVE_MONITOR_FG}%{B$COLOR_ACTIVE_MONITOR_BG} ${name} %{B-}%{F-}  "
+              wm_infos="$wm_infos %{F$COLOR_ACTIVE_MONITOR_FG}%{B$COLOR_ACTIVE_MONITOR_BG}$PADDING${name}$PADDING%{B-}%{F-}  "
             fi
             ;;
           m*)
             # inactive monitor
             if [ $num_mon -gt 1 ] ; then
-              wm_infos="$wm_infos %{F$COLOR_INACTIVE_MONITOR_FG}%{B$COLOR_INACTIVE_MONITOR_BG} ${name} %{B-}%{F-}  "
+              wm_infos="$wm_infos %{F$COLOR_INACTIVE_MONITOR_FG}%{B$COLOR_INACTIVE_MONITOR_BG}$PADDING${name}$PADDING%{B-}%{F-}  "
             fi
             ;;
           O*)
             # focused occupied desktop
-            wm_infos="${wm_infos}%{F$COLOR_FOCUSED_OCCUPIED_FG}%{B$COLOR_FOCUSED_OCCUPIED_BG}%{U$COLOR_FOREGROUND}%{+u} ${name} %{-u}%{B-}%{F-}"
+            wm_infos="${wm_infos}%{F$COLOR_FOCUSED_OCCUPIED_FG}%{B$COLOR_FOCUSED_OCCUPIED_BG}%{U$COLOR_FOREGROUND}$PADDING${name}$PADDING%{B-}%{F-}"
             ;;
           F*)
             # focused free desktop
-            wm_infos="${wm_infos}%{F$COLOR_FOCUSED_FREE_FG}%{B$COLOR_FOCUSED_FREE_BG}%{U$COLOR_FOREGROUND}%{+u} ${name} %{-u}%{B-}%{F-}"
+            wm_infos="${wm_infos}%{F$COLOR_FOCUSED_FREE_FG}%{B$COLOR_FOCUSED_FREE_BG}%{U$COLOR_FOREGROUND}$PADDING${name}$PADDING%{B-}%{F-}"
             ;;
           U*)
             # focused urgent desktop
-            wm_infos="${wm_infos}%{F$COLOR_FOCUSED_URGENT_FG}%{B$COLOR_FOCUSED_URGENT_BG}%{U$COLOR_FOREGROUND}%{+u} ${name} %{-u}%{B-}%{F-}"
+            wm_infos="${wm_infos}%{F$COLOR_FOCUSED_URGENT_FG}%{B$COLOR_FOCUSED_URGENT_BG}%{U$COLOR_FOREGROUND}$PADDING${name}$PADDING%{B-}%{F-}"
             ;;
           o*)
             # occupied desktop
-            wm_infos="${wm_infos}%{F$COLOR_OCCUPIED_FG}%{B$COLOR_OCCUPIED_BG} ${name} %{B-}%{F-}"
+            wm_infos="${wm_infos}%{F$COLOR_OCCUPIED_FG}%{B$COLOR_OCCUPIED_BG}$PADDING${name}$PADDING%{B-}%{F-}"
             ;;
           f*)
             # free desktop
-            wm_infos="${wm_infos}%{F$COLOR_FREE_FG}%{B$COLOR_FREE_BG} ${name} %{B-}%{F-}"
+            wm_infos="${wm_infos}%{F$COLOR_FREE_FG}%{B$COLOR_FREE_BG}$PADDING${name}$PADDING%{B-}%{F-}"
             ;;
           u*)
             # urgent desktop
-            wm_infos="${wm_infos}%{F$COLOR_URGENT_FG}%{B$COLOR_URGENT_BG} ${name} %{B-}%{F-}"
-            ;;
-          L*)
-            # layout
-            if [[ $name = "T" ]]; then
-              wm_infos="$wm_infos  %{F$COLOR_LAYOUT_FG}%{B$COLOR_LAYOUT_BG} $(echo -e ${ICON_LAYOUT_TILE}) %{B-}%{F-}"
-            else
-              wm_infos="$wm_infos  %{F$COLOR_LAYOUT_FG}%{B$COLOR_LAYOUT_BG} $(echo -e ${ICON_LAYOUT_MONO}) %{B-}%{F-}"
-            fi
+            wm_infos="${wm_infos}%{F$COLOR_URGENT_FG}%{B$COLOR_URGENT_BG}$PADDING${name}$PADDING%{B-}%{F-}"
             ;;
         esac
         shift
       done
       ;;
-  esac 
-  # need to add back in ${music} after the {r}
-  printf "%s\n" "%{l}${wm_infos}%{r}${volume}${wifi}${sys_infos}"
+  esac
+  printf "%s\n" "%{l}${wm_infos}%{c}${music}%{r}${news}${messages}${email}${wifi}${volume}${battery}${date}${clock}"
 done
