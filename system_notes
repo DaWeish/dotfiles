@@ -43,3 +43,5 @@ Left the SUID bit in udevil and enabled the devmon@connor.service
 Installed arudino from AUR
 Installed lemonbar-xft-git and replaced lemonbar-git
 Downloaded chriskempson/base16-xresources to .config folder
+Installed the urxvt-patched version from the AUR
+Installed font-awesome from the AUR

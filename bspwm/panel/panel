@@ -1,22 +1,96 @@
 #! /bin/sh
 
+# import config variables
+. ~/.config/bspwm/panel/panel_config
+. ~/.config/bspwm/panel/panel_colors
+
 if [ $(pgrep -cx panel) -gt 1 ] ; then
 	printf "%s\n" "The panel is already running." >&2
 	exit 1
 fi
 
+# exit gracefully when terminated
 trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 
+# Remove the old panel_fifo and create a new one
 [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
 mkfifo "$PANEL_FIFO"
 
+# Give the panel space at the top
 bspc config top_padding $PANEL_HEIGHT
+
+# Get bspwm workspace info
 bspc control --subscribe > "$PANEL_FIFO" &
-xtitle -sf 'T%s' > "$PANEL_FIFO" &
-clock -sf 'S%a %H:%M' > "$PANEL_FIFO" &
 
-. ~/.config/bspwm/panel/panel_colors
+# New Panel config from Jorick# display current playing song info
+# requires mpc
+# Uncomment once mpc is setup
+#while true; do
+#  # Get the current status from mpc
+#  MUSIC=$(mpc)
+#  # When music is playing, mpc shows 3 lines, when stopped only one line. Get the number of lines.
+#  MUSIC_LINES=$(echo $MUSIC | wc -l) 
+#  # When number of lines is 3, music is playing
+#  if [[ $MUSIC_LINES -eq 3 ]]; then
+#    # get status: playing or paused
+#    MUSIC_STATUS=$(echo $MUSIC | awk 'NR==2' | awk '{print $1}' | tr -d '[]')
+#    if [[ $MUSIC_STATUS = "playing" ]]; then
+#      MUSIC_STATUS_ICON=$ICON_MEDIA_PLAY
+#    else
+#      MUSIC_STATUS_ICON=$ICON_MEDIA_PAUSE
+#    fi
+#    # get current playing song
+#    MUSIC_CURRENT=$(echo $MUSIC | awk 'NR==1')
+#    # get current position in song
+#    MUSIC_POS=$(echo $MUSIC | awk 'NR==2' | awk '{print $3}')
+#    # put all info together
+#    echo -e "MUSIC$MUSIC_STATUS_ICON $MUSIC_CURRENT - $MUSIC_POS"
+#  else
+#    # When number of lines is not 3, no music is playing: display stopped
+#    echo -e "MUSICstopped"
+#  fi
+#  sleep $REFRESH
+#done > "$PANEL_FIFO" 
+#
 
-cat "$PANEL_FIFO" | ~/.config/bspwm/panel/panel_bar | lemonbar -g x$PANEL_HEIGHT -f "$PANEL_FONT_FAMILY" -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" &
+while true; do
+  WIFI_INFO=$(iw $WIFI_DEV link)
+  if [[ $WIFI_INFO = "Not connected." ]]; then
+    # display wifi disconnected
+    echo -e "WIFI$ICON_WIFI_DISCONNECTED diconnected"
+  else
+    # get the ssid
+    # Was using $WIFI_INFO but that was storing everything in a single line
+    #   for some reason.
+    WIFI_SSID=$(iw $WIFI_DEV link | grep "SSID" | sed 's/SSID: //')
+    # get the signal strength
+    WIFI_SIGNAL=$(iw $WIFI_DEV link | grep "signal" | sed 's/signal: //' | tr -d ' dBm')
+    if (( $WIFI_SIGNAL > -50 )); then
+      WIFI_SIGNAL_PERCENT="100"
+    elif (( $WIFI_SIGNAL < -100 )); then
+      WIFI_SIGNAL_PERCENT="0"
+    else
+      WIFI_SIGNAL_PERCENT=$(echo $((2 * (100 + $WIFI_SIGNAL))))
+    fi
+    # display all info
+    echo -e "WIFI$ICON_WIFI_CONNECTED$WIFI_SSID $WIFI_SIGNAL_PERCENT"
+  fi
+  sleep $REFRESH
+done > "$PANEL_FIFO" &
+
+# volume indicator
+while true; do
+  # get the current pulseaudio volume ( use amixer for alsa )
+  echo -e "VOL$ICON_VOLUME_HIGH $(ponymix get-volume)"
+  sleep $REFRESH 
+done > "$PANEL_FIFO" &
+
+# Clock
+while true; do
+  echo -e "S$ICON_DATE$(date +'%a %d %b') $ICON_CLOCK$(date +'%H:%M')"
+  sleep $REFRESH
+done > "$PANEL_FIFO" &
+
+cat "$PANEL_FIFO" | ~/.config/bspwm/panel/panel_bar | lemonbar -g "${PANEL_WIDTH}x${PANEL_HEIGHT}" -f "$PANEL_FONT_FAMILY" -f "$PANEL_FONT_ICON" -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" -u 0 &
 
 wait
