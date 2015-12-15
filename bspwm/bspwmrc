@@ -27,13 +27,13 @@ bspc rule -a Chromium desktop=^2
 sxhkd &
 
 # Load up the background image
-hsetroot -fill ~/Pictures/DesktopBackgrounds/WinterTree.jpg &
+hsetroot -fill ~/Pictures/DesktopBackgrounds/currentBackground &
 
 # Start lemonbar-xft
 ~/.config/bspwm/panel/panel &
 
 # Begin redshift
-#redshift -c ~/.config/redshift/redshift.conf &
+redshift -c ~/.config/redshift/redshift.conf &
 
 # Begin compton for compositing and specify background and config
 compton -b --config ~/.config/compton/compton.conf
