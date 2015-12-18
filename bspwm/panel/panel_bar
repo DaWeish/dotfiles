@@ -44,11 +44,11 @@ while read -r line ; do
       battery="$PADDING${line#???}$PADDING"
       ;;
 
-      # uncomment for window title support
-      #   TITLE*)
-      #     # xtitle output
-      #     title="${line#?????}$PADDING$PADDING"
-      #     ;;
+# uncomment for window title support
+#   TITLE*)
+#     # xtitle output
+#     title="${line#?????}$PADDING$PADDING"
+#     ;;
 
     VOL*)
       # alsa volume

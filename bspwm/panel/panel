@@ -5,8 +5,8 @@
 . ~/.config/bspwm/panel/panel_colors
 
 if [ $(pgrep -cx panel) -gt 1 ] ; then
-	printf "%s\n" "The panel is already running." >&2
-	exit 1
+  printf "%s\n" "The panel is already running." >&2
+  exit 1
 fi
 
 # exit gracefully when terminated
@@ -98,13 +98,17 @@ done > "$PANEL_FIFO" &
 
 # ----- Clock -----
 while true; do
-  echo -e "TIME$ICON_CLOCK$(date +"%_H:%M")"
+# Replace with below line for the clock icon
+#  echo -e "TIME$ICON_CLOCK$(date +"%_H:%M")"
+  echo -e "TIME$(date +"%_H:%M")"
   sleep $REFRESH_CLOCK
 done > "$PANEL_FIFO" &
 
 # ----- Date -----
 while true; do
-  echo -e "DAY$ICON_DATE$(date +'%a, %b %_d')"
+# Replace with below to add in the calendar icon
+#  echo -e "DAY$ICON_DATE$(date +'%a, %b %_d')"
+  echo -e "DAY$(date +'%a, %b %_d')"
   sleep $REFRESH_DATE
 done > "$PANEL_FIFO" &
 
@@ -119,7 +123,7 @@ while true; do
     elif [[ $BATT_LEVEL -ge 40 && $BATT_LEVEL -lt 60 ]]; then
       BATT_ICON=$ICON_BATTERY_HALF
     elif [[ $BATT_LEVEL -ge 20 && $BATT_LEVEL -lt 40 ]]; then
-      BATT_ICON=$ICON_BATTER_QUARTER
+      BATT_ICON=$ICON_BATTERY_QUARTER
     elif [[ $BATT_LEVEL -lt 20 ]]; then
       BATT_ICON=$ICON_BATTERY_EMPTY
     fi
@@ -127,7 +131,8 @@ while true; do
     BATT_ICON=$ICON_BATTERY_CHARGING
   fi
 
-  echo -e BAT$BATT_ICON
+#  echo -e BAT$BATT_ICON
+  echo -e "BAT$BATT_ICON $BATT_LEVEL%"
   sleep $REFRESH_BATTERY
 done > "$PANEL_FIFO" &
 
@@ -216,9 +221,9 @@ done > "$PANEL_FIFO" &
   -g x"$PANEL_HEIGHT" \
   -f "$PANEL_FONT" \
   -f "$ICON_FONT" \
-  -f "$ICON_FONT2" \
   -F "$COLOR_FOREGROUND" \
   -B "$COLOR_BACKGROUND" \
-  -u 2 &
+  -o -1 \
+  -u 0 &
 
 wait
