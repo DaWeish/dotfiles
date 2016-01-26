@@ -1,6 +1,6 @@
 !---------- Colors -----------------------
-*.cursorColor:  #ebdbb2
-*.foreground: #ebdbb2
+*.cursorColor:  #f2f2f8
+*.foreground: #f2f2f8
 
 *.background: #282828
 

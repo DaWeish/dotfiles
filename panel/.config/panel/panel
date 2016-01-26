@@ -1,8 +1,8 @@
 #! /bin/sh
 
 # import config variables
-. ~/.config/bspwm/panel/panel_config
-. ~/.config/bspwm/panel/panel_colors
+. ~/.config/panel/panel_config
+. ~/.config/panel/panel_colors
 
 if [ $(pgrep -cx panel) -gt 1 ] ; then
   printf "%s\n" "The panel is already running." >&2
@@ -217,7 +217,7 @@ done > "$PANEL_FIFO" &
 #done > "$PANEL_FIFO" &
 #
 # dump panel into panel_bar and then into lemonbar
-~/.config/bspwm/panel/panel_bar < "$PANEL_FIFO" | lemonbar \
+~/.config/panel/panel_bar < "$PANEL_FIFO" | lemonbar \
   -g x"$PANEL_HEIGHT" \
   -f "$PANEL_FONT" \
   -f "$ICON_FONT" \

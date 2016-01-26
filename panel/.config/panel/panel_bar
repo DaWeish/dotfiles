@@ -2,8 +2,7 @@
 #
 # Example panel for LemonBoy's bar
 
-. ~/.config/bspwm/panel/panel_colors
-#. ~/.config/bspwm/panel/panel_config
+. ~/.config/panel/panel_colors
 
 num_mon=$(bspc query -M | wc -l)
 PADDING="  "

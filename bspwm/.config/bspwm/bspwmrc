@@ -1,19 +1,19 @@
 #! /bin/sh
 
 bspc config border_width        3
-bspc config window_gap          8 
+bspc config window_gap          10 
 
 bspc config split_ratio         0.5
 bspc config borderless_monocle  true
 bspc config gapless_monocle     true
 bspc config focus_by_distance   true
 
-bspc config normal_border_color "#32302f"
-bspc config presel_border_color "#d79921"
-bspc config normal_sticky_border_color "#1d2021"
-bspc config focused_sticky_border_color "#d5c4a1"
-bspc config urgent_border_color "#cc241d"
-bspc config focused_border_color "#928374"
+bspc config normal_border_color "#282828"
+bspc config presel_border_color "#83a598"
+bspc config normal_sticky_border_color "#689d6a"
+bspc config focused_sticky_border_color "#8ec07c"
+bspc config urgent_border_color "#b16286"
+bspc config focused_border_color "#5f7ab1"
 #bspc config normal_frame_opacity 1.0
 #bspc config focused_frame_opacity 1.0
 
@@ -27,10 +27,10 @@ bspc rule -a Chromium desktop=^2
 sxhkd &
 
 # Load up the background image
-hsetroot -fill ~/Pictures/DesktopBackgrounds/currentBackground &
+feh --randomize --bg-scale ~/Pictures/DesktopBackgrounds/* &
 
 # Start lemonbar-xft
-~/.config/bspwm/panel/panel &
+~/.config/panel/panel &
 
 # Begin redshift
 redshift -c ~/.config/redshift/redshift.conf &

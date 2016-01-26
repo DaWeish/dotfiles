@@ -86,6 +86,9 @@ super + Return
 super + space
   dmenu_run
 
+super + p
+  chromium
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
