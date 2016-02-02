@@ -25,7 +25,8 @@ alias q='exit'
 
 alias irc="$IRC_CLIENT"
 
-alias vi="vim"
+alias vi="nvim"
+alias vim="nvim"
 
 # Language aliases
 alias rb='ruby'
