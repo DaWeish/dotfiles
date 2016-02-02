@@ -11,3 +11,7 @@ JAVA_HOME=/usr/lib/jvm/java-7-openjdk
 #PANEL_HEIGHT=24
 #PANEL_FONT_FAMILY="-*-terminus-medium-r-normal-*-12-*-*-*-c-*-*-1"
 #export PANEL_FIFO PANEL_HEIGHT PANEL_FONT_FAMILY
+
+if [ -d "$HOME/.scripts" ] ; then
+  PATH="$HOME/.scripts:$PATH"
+fi
