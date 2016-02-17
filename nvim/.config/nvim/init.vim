@@ -15,6 +15,9 @@ Plugin 'tomasr/molokai'
 
 Plugin 'Valloric/YouCompleteMe'
 
+Plugin 'xolox/vim-notes'
+Plugin 'xolox/vim-misc'
+
 "Plugin 'scrooloose/nerdtree'
 
 " All of your Plugins must be added before the following line
@@ -89,6 +92,9 @@ let g:airline_theme='lucius'
 " These mess with Airline bcause they close out its window
 "let g:ycm_autoclose_preview_window_after_completion = 1
 "let g:ycm_autoclose_preview_window_after_insertion = 1
+
+" Notes Config
+let g:notes_directories = ['~/Documents/Notes']
 
 " Display history for fifty lines and always show ruler
 set history=50

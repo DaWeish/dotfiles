@@ -28,6 +28,14 @@ alias irc="$IRC_CLIENT"
 alias vi="nvim"
 alias vim="nvim"
 
+alias cs01="rc01xcs213.managed.mst.edu"
+alias cs02="rc02xcs213.managed.mst.edu"
+alias cs03="rc03xcs213.managed.mst.edu"
+alias cs04="rc04xcs213.managed.mst.edu"
+alias cs05="rc05xcs213.managed.mst.edu"
+alias cs06="rc06xcs213.managed.mst.edu"
+alias cs07="rc07xcs213.managed.mst.edu"
+
 # Language aliases
 alias rb='ruby'
 alias py='python'

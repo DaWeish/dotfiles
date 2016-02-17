@@ -1,6 +1,6 @@
 !---------- urxvt -------------------------------------------
 ! Ctrl+Alt+C copy  Ctrl+Alt+V paste
-#include "./currentTerminalColors"
+#include "/home/connorw/.config/themes/currentTheme/XresourceColors"
 
 ! Color depth options and set background color
 !URxvt.depth:	32
