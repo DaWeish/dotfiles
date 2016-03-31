@@ -38,4 +38,4 @@ feh --bg-scale ~/.config/themes/currentTheme/desktopBackground &
 redshift -c ~/.config/redshift/redshift.conf &
 
 # Begin compton for compositing and specify background and config
-compton -b --config ~/.config/compton/compton.conf
+#compton -b --config ~/.config/compton/compton.conf
