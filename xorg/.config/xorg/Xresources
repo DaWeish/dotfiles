@@ -6,6 +6,7 @@
 !URxvt.depth:	32
 !URxvt.background:	[88]#202020
 
+
 Rxvt.secondaryScreen:	true
 URxvt.secondaryScroll:	false
 URxvt.skipScroll:	true

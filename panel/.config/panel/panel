@@ -2,7 +2,7 @@
 
 # import config variables
 . ~/.config/panel/panel_config
-. ~/.config/panel/panel_colors
+. ~/.config/themes/currentTheme/panelColors
 
 if [ $(pgrep -cx panel) -gt 1 ] ; then
   printf "%s\n" "The panel is already running." >&2
@@ -20,7 +20,7 @@ mkfifo "$PANEL_FIFO"
 bspc config top_padding $PANEL_HEIGHT
 
 # Get bspwm status info
-bspc control --subscribe > "$PANEL_FIFO" &
+bspc subscribe report > "$PANEL_FIFO" &
 
 # Window Title
 # xtitle -sf 'TITLE%s' > "$PANEL_FIFO" &
