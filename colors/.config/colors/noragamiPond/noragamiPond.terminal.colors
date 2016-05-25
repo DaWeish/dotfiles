@@ -1,0 +1,36 @@
+! Noragami Pond Colors
+*.foreground:   #c5c8c6
+*.background:   #1d1f21
+*.cursorColor:  #c5c8c6
+
+! black
+*.color0:       #282a2e
+*.color8:       #373b41
+
+! red
+*.color1:       #711f12
+*.color9:       #a7321a
+
+! magenta
+*.color2:       #6e1578
+*.color10:      #b523c8
+
+! yellow
+*.color3:       #c19a5e
+*.color11:      #e6b365
+
+! peach
+*.color4:       #916362
+*.color12:      #b76e6c
+
+! blue
+*.color5:       #444887
+*.color13:      #3b59ba
+
+! green
+*.color6:       #727858
+*.color14:      #98a464
+
+! white
+*.color7:       #978f86
+*.color15:      #ddcab6
