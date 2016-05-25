@@ -5,7 +5,7 @@
 XDG_CONFIG_HOME=$HOME/.config
 export XDG_CONFIG_HOME
 
-JAVA_HOME=/usr/lib/jvm/java-7-openjdk
+JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 export JAVA_HOME
 
 EDITOR=/usr/bin/nvim
