@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-set -x
-
-xrdb -load ~/.config/Xresources &
-
-sway -d 2> ~/sway.log

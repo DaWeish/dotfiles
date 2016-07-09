@@ -140,10 +140,10 @@ output * bg /usr/share/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
 # dmenu with mod+d for arbituary programs
     bindsym $mod+d exec dmenu_run -p "Run:" -l 10
-    bindsym $mod+shift+d exec i3-dmenu-desktop
+    #bindsym $mod+shift+d exec i3-dmenu-desktop
 
 # passwords
-    bindsym $mod+p exec pass-dmenu
+    #bindsym $mod+p exec pass-dmenu
 
 # volume controls (special keys on keyboard)
     bindsym XF86AudioMute exec pa-adjust mute
@@ -174,14 +174,22 @@ output * bg /usr/share/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
 # Status bar uses custom script
 bar {
-#        status_command custom_statusbar
+#       id <bar_id>
         position top
+        swaybar_command swaybar
+#       font <font>
+#       seperator_symbol <symbol>
+        workspace_buttons yes
+#        strip_workspace_numbers no
+        status_command custom_statusbar
+#       height <height> "default matches font size"
         colors {
             statusline #ffffff
             background #323232
             focused_workspace #32323200 #32323200 #ffffff
             inactive_workspace #00000000 #32323200 #666666
             active_workspace #00000000 #32323200 #666666
+#           seperator <color>
         }
 }
 
@@ -205,8 +213,7 @@ client.unfocused        $bg     $bg         $ia     $id
 client.focused_inactive $bg     $bg         $ac     $id
 client.urgent           $rd     $rd         $tx     $id
 
-# include ~/.config/sway/config.d/`hostname`/*
-# include ~/.config/sway/config.d/*
-# exec startup sway
+include ~/.config/sway/config.d/`hostname`/*
+include ~/.config/sway/config.d/*
 
-exec xrdb ~/.config/urxvt/Xresources
+exec startup sway
