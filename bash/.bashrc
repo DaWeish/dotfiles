@@ -5,46 +5,46 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-source /usr/share/git/completion/git-prompt.sh
+# Auto cd into directories
+shopt -s autocd
 
-alias sl=ls
-alias ls='ls -G'        # Compact view, show colors
-alias la='ls -AF'       # Compact view, show hidden
-alias ll='ls -al'
-alias l='ls -a'
-alias l1='ls -1'
-alias ls="ls --color=auto"
+# Check for window size after every command to fix line wrap
+shopt -s checkwinsize
+
+# Aliases
+alias ls='ls --color=auto'
+alias ll='ls -la --color=auto'
+alias la='ls -d .* --color=auto'
+
+alias ..='cd ..'
+alias ...='cd ../..'
+
+alias rm='rm -I --preserve-root'
+
+alias mv='mv -i'
+alias cp='cp -i'
+alias ln='ln -i'
+
+alias chown='chown --preserve-root'
+alias chmod='chmod --preserve-root'
+alias chgrp='chgrp --preserve-root'
+
+alias mkdir='mkdir -p'
+
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+alias bc='bc -l'
+
+alias h='history'
+
+alias j='jobs -l'
+
 alias c='clear'
-alias k='clear'
-alias cls='clear'
 
-alias edit="$EDITOR"
-alias pager="$PAGER"
-
-alias q='exit'
-
-alias irc="$IRC_CLIENT"
-
-alias vi="nvim"
-alias vim="nvim"
-
-alias cs01="rc01xcs213.managed.mst.edu"
-alias cs02="rc02xcs213.managed.mst.edu"
-alias cs03="rc03xcs213.managed.mst.edu"
-alias cs04="rc04xcs213.managed.mst.edu"
-alias cs05="rc05xcs213.managed.mst.edu"
-alias cs06="rc06xcs213.managed.mst.edu"
-alias cs07="rc07xcs213.managed.mst.edu"
-
-# Language aliases
-alias rb='ruby'
-alias py='python'
-alias ipy='ipython'
-
-alias ..='cd ..'         # Go up one directory
-alias ...='cd ../..'     # Go up two directories
-alias ....='cd ../../..' # Go up three directories
-alias -- -='cd -'        # Go back
+alias vi=nvim
+alias vim=nvim
 
 
-PS1='\u@\h \W$(__git_ps1)\$ '
+PS1='[\u@\h \W]\$ '
