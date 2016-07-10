@@ -3,13 +3,13 @@
 # Windows key on most keyboards
 set $mod Mod4
 
-#font pango:DejaVu Sans Mono 9
+font pango:DejaVu Sans Mono 9
 
-gaps inner 10
+gaps inner 9
 
 output * bg /usr/share/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
-# Meta key bindings
+## Meta key bindings
 # Move window with mod+mouse drag
     floating_modifier $mod
 
@@ -18,7 +18,6 @@ output * bg /usr/share/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
 # Toggle fullscreen with mod+f
     bindsym $mod+f fullscreen
-    bindsym $mod+Escape exec xkill
 
 # change focus with mod+hjkl or mod+arrow
     bindsym $mod+h focus left
@@ -30,6 +29,7 @@ output * bg /usr/share/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     bindsym $mod+Up focus up
     bindsym $mod+Right focus right
 
+# Move workspaces with Meta+Alt h/l
     bindsym $mod+Mod1+h workspace prev_on_output
     bindsym $mod+Mod1+l workspace next_on_output
     bindsym $mod+Mod1+Left workspace prev_on_output
@@ -57,8 +57,6 @@ output * bg /usr/share/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     bindsym $mod+9 workspace 9
     bindsym $mod+0 workspace 10
 
-    bindsym $mod+Tab exec aworkspace switch
-
 # move container to workspace with meta+shift+1234567890
     bindsym $mod+Shift+1 move container to workspace 1
     bindsym $mod+Shift+2 move container to workspace 2
@@ -71,12 +69,11 @@ output * bg /usr/share/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     bindsym $mod+Shift+9 move container to workspace 9
     bindsym $mod+Shift+0 move container to workspace 10
 
+# move container to next/previous workspace with meta+ctl+alt+h/l
     bindsym $mod+Control+Mod1+h move container to workspace prev_on_output
     bindsym $mod+Control+Mod1+l move container to workspace next_on_output
     bindsym $mod+Control+Mod1+Left move container to workspace prev_on_output
     bindsym $mod+Control+Mod1+Right move container to workspace next_on_output
-
-    bindsym $mod+Shift+Tab exec aworkspace move
 
 # vim-style window splits and resizing after hitting mod+w
     mode "window" {
@@ -102,7 +99,7 @@ output * bg /usr/share/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     bindsym $mod+Shift+space floating toggle
 
 # Swap focus between tiling windows and floating windows
-    bindsym $mod+space focus mode_toggle
+    bindsym $mod+i focus mode_toggle
 
 # Move focus to parent container with mod+a
     bindsym $mod+a focus parent
@@ -138,12 +135,8 @@ output * bg /usr/share/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     bindsym $mod+s exec swaygrab ~/Pictures/screenshots/$(date +"%Y-%m-%d_%H:%M:%S.png")
     bindsym $mod+Shift+s exec sleep 0.1 && srht -s
 
-# dmenu with mod+d for arbituary programs
-    bindsym $mod+d exec dmenu_run -p "Run:" -l 10
-    #bindsym $mod+shift+d exec i3-dmenu-desktop
-
-# passwords
-    #bindsym $mod+p exec pass-dmenu
+# dmenu with mod+space for arbituary programs
+    bindsym $mod+space exec dmenu_run -p "Run:" -l 10
 
 # volume controls (special keys on keyboard)
     bindsym XF86AudioMute exec pa-adjust mute
@@ -155,11 +148,11 @@ output * bg /usr/share/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     bindsym $mod+Shift+XF86AudioRaiseVolume exec pa-adjust seekff
 
 # music controls (special keys on keyboard)
-    bindsym XF86AudioNext exec stewdio skip
-    bindsym XF86AudioPlay exec stewdio play
-    bindsym XF86AudioPrev exec stewdio dmenu-search
-    bindsym $mod+XF86AudioPlay exec stewdio qfav
-    bindsym $mod+XF86AudioNext exec stewdio dmenu-queue
+#    bindsym XF86AudioNext exec stewdio skip
+#    bindsym XF86AudioPlay exec stewdio play
+#    bindsym XF86AudioPrev exec stewdio dmenu-search
+#    bindsym $mod+XF86AudioPlay exec stewdio qfav
+#    bindsym $mod+XF86AudioNext exec stewdio dmenu-queue
 
 # i3-lock on mod+pause
     bindsym XF86Sleep exec swaylock -i ~/wallpaper.png -s stretch
