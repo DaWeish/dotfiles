@@ -51,11 +51,11 @@ output * bg /usr/share/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     set $rd #e89393
     set $id #1D1A18
     set $ce #ceecee
-# set some nice colors      border  background  text    indicator
-    client.focused          $id     $ac         $tx     $id
-    client.unfocused        $bg     $bg         $ia     $id
-    client.focused_inactive $bg     $bg         $ac     $id
-    client.urgent           $rd     $rd         $tx     $id
+# set some nice colors      border  background  text    indicator child_border
+    client.focused          $id     $ac         $tx     $id       #285577
+    client.unfocused        $bg     $bg         $ia     $id       #222222
+    client.focused_inactive $bg     $bg         $ac     $id       #5f676a
+    client.urgent           $rd     $rd         $tx     $id       #900000
 #
 #
 ### Window Controls
@@ -108,13 +108,19 @@ output * bg /usr/share/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     bindsym $mod+space focus mode_toggle
 # move focus to parent container with mod+a
     bindsym $mod+a focus parent
-#
+# $mod+b or $mod+v, for horizontal and vertical splits
+    bindsym $mod+b splith
+    bindsym $mod+v splitv
+# resize the window bindsym $mod+Mod1+h resize shrink width
+    bindsym $mod+Mod1+l resize grow width
+    bindsym $mod+Mod1+j resize shrink height
+    bindsym $mod+Mod1+k resize grow height
 #
 ### Workspace Controls
 #
 # move workspaces with mod+alt h/l
-    bindsym $mod+Mod1+h workspace prev_on_output
-    bindsym $mod+Mod1+l workspace next_on_output
+    bindsym $mod+Mod1+bracketleft workspace prev_on_output
+    bindsym $mod+Mod1+bracketright workspace next_on_output
     bindsym $mod+Mod1+Left workspace prev_on_output
     bindsym $mod+Mod1+Right workspace next_on_output
 # switch to workspace with mod+1234567890
@@ -129,23 +135,6 @@ output * bg /usr/share/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     bindsym $mod+9 workspace 9
     bindsym $mod+0 workspace 10
 #
-#
-### Window Resize Mode (Get rid of this for sxhkd defaults)
-#
-# vim-style window splits and resizing after hitting mod+w
-    mode "window" {
-        bindsym s split v; mode "default"
-        bindsym v split h; mode "default"
-        bindsym Shift+comma resize shrink width 10 px or 10 ppt
-        bindsym Shift+period resize grow width 10 px or 10 ppt
-        bindsym Shift+equal resize grow height 10 px or 10 ppt
-        bindsym minus resize shrink height 10 px or 10 ppt
-    # Leave window mode with return/escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-    }
-#
-    bindsym $mod+w mode "window"
 #
 ### Scratchpad
 #
