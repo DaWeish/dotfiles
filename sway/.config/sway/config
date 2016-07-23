@@ -105,7 +105,7 @@ output * bg /usr/share/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # toggle floating with mod+shift+space
     bindsym $mod+Shift+space floating toggle
 # swap focus between tiling windows and floating windows
-    bindsym $mod+space focus mode_toggle
+    bindsym $mod+Mod1+space focus mode_toggle
 # move focus to parent container with mod+a
     bindsym $mod+a focus parent
 # $mod+b or $mod+v, for horizontal and vertical splits
@@ -149,7 +149,7 @@ output * bg /usr/share/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # ranger with mod+e
     bindsym $mod+e exec urxvt -e ranger
 # dmenu with mod+space for arbituary programs
-    bindsym $mod+d exec dmenu_run -p "Run:"
+    bindsym $mod+space exec dmenu_run -p "Run:"
 #
 #
 ### Control Keys
@@ -167,6 +167,17 @@ output * bg /usr/share/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #    bindsym $mod+XF86AudioNext exec stewdio dmenu-queue
 #
 # brightness controls
+    bindsym XF86MonBrightnessUp exec light -A 6
+    bindsym XF86MonBrightnessDown exec light -U 6
+#
+### Touchpad
+#
+input "1739:10548:DLL063E:00_06C" {
+      natural_scroll enabled
+      dwt enabled
+      pointer_accel -0.25
+}
+#
 #
 ### Status Bar
 #
@@ -193,4 +204,4 @@ bar {
 include ~/.config/sway/config.d/`hostname`/*
 include ~/.config/sway/config.d/*
 
-exec startup sway
+exec startup
