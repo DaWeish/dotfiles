@@ -15,6 +15,7 @@ Plugin 'tpope/vim-fugitive'
 
 call vundle#end()
 filetype plugin indent on
+" To install use :PluginInstall
 
 " Colors
 set background=dark
