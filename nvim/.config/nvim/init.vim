@@ -1,5 +1,21 @@
 " Vimrc for connorw 
 
+" Setup Vundle
+set nocompatible
+filetype off
+
+set rtp+=~/.config/nvim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'lervag/vimtex'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+
+call vundle#end()
+filetype plugin indent on
+
 " Colors
 set background=dark
 colorscheme slate

@@ -29,7 +29,7 @@ bspc monitor -d $(echo -e '\uf109') $(echo -e '\uf121') $(echo -e '\uf120') $(ec
 sxhkd -c ~/.config/sxhkd/sxhkdrc &
 
 # Load up the background image
-feh --bg-scale ~/Pictures/Wallpapers/YourLieInApril/664411.jpg &
+feh --bg-scale ~/.config/themes/currentTheme/desktopBackground &
 
 # Start lemonbar-xft
 ~/.config/panel/panel &
