@@ -26,8 +26,8 @@ PANEL_HEIGHT=20
 PANEL_WIDTH=1366
 
 # Fonts
-PANEL_FONT="Source Sans Pro Semibold:size=10"
-ICON_FONT="FontAwesome:size=11"
+PANEL_FONT="Source Sans Pro Semibold:size=8"
+ICON_FONT="FontAwesome:size=10"
 
 # Icons
 ICON_CLOCK='\uf017 '
