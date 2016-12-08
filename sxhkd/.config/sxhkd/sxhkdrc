@@ -152,7 +152,7 @@ XF86AudioMute
 
 # ------- Brightness Control Shortcuts ----------
 XF86MonBrightnessUp
-	light -A 6
+	xbacklight -inc 5
 
 XF86MonBrightnessDown
-	light -U 6
+	xbacklight -dec 5

@@ -46,5 +46,15 @@ alias c='clear'
 alias vi=nvim
 alias vim=nvim
 
+alias dd='dd status=progress'
+
 
 PS1='[\u@\h \W]\$ '
+
+# Alternatively I could run init-nvm.sh which does the following
+[ -z "$NVM_DIR" ] && export NVM_DIR="$XDG_CONFIG_HOME/nvm"
+source /usr/share/nvm/nvm.sh
+source /usr/share/nvm/bash_completion
+source /usr/share/nvm/install-nvm-exec
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
