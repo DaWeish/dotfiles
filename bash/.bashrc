@@ -19,9 +19,9 @@ alias la='ls -d .* --color=auto'
 alias ..='cd ..'
 alias ...='cd ../..'
 
-alias rm='rm -I --preserve-root'
+alias rm='rm -Iv --preserve-root --one-file-system'
 
-alias mv='mv -i'
+alias mv='mv -iv'
 alias cp='cp -i'
 alias ln='ln -i'
 
